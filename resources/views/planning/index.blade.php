@@ -1,0 +1,362 @@
+@extends('layouts.master')
+@section('title', 'planning')
+@section('content')
+<nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+<<<<<<< HEAD
+        <img src="{{asset('assets/img/len.png')}}" style="width: 70px; height: 40px;">
+=======
+        <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+>>>>>>> 1992e0e52e48761aef8d4c681f20198965ac2e69
+    </a>
+    <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+    </a>
+<<<<<<< HEAD
+    <center>
+    <div class="navbar-nav align-items-center ms-auto">
+            <a href="/planning" class="nav-link">
+                <i class="fa fa-home"></i>
+                <span class="d-none d-lg-inline-flex"></span>
+            </a>
+            <a href="/scope" class="nav-link" >
+                <i class="fas fa-crosshairs me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Scope</span >
+            </a>
+            <a href="/schedule" class="nav-link" >
+                <i class="far fa-calendar-alt me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Schedule</span>
+            </a>
+            <a href="/cost" class="nav-link" >
+                <i class="	fas fa-coins me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Cost</span>
+            </a>
+            <a href="/quality" class="nav-link" >
+                <i class="fas fa-award me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Quality</span>
+            </a>
+            <a href="/resources" class="nav-link" >
+                <i class="fa fa-cogs me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Resources</span>
+            </a>
+            <a href="/communication" class="nav-link" >
+                <i class="far fa-comments me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Communication</span>
+            </a>
+            <a href="/risk" class="nav-link">
+                <i class="fa fa-cog me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Risk</span>
+            </a>
+            <a href="/procurement" class="nav-link" >
+                <i class="fas fa-shopping-cart me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Procurement</span>
+            </a>
+            <a href="/stakeholder" class="nav-link" >
+                <i class="fas fa-users-cog me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Stakeholder</span>
+            </a> 
+    </div>
+    </center>
+</nav>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Risk</h2>
+                <a href="/risk/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Entry Date</small></th>
+                                <th><small>Description Ofrisk</small></th>
+                                <th><small>Submitter</small></th>
+                                <th><small>Name Project</small></th>
+                                <th><small>Probability Factor</small></th>
+                                <th><small>Impact Factor</small></th>
+                                <th><small>Exposure</small></th>
+                                <th><small>Risk Response Type</small></th>
+                                <th><small>Risk Reponse Plan</small></th>
+                                <th><small>Assigned To</small></th>
+                                <th><small>Status</small></th>
+                                <th><small>Due Date</small></th>
+                                <th><small>Action</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($risks as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->start_date}}</small></td>
+                                <td><small>{{$r->description_ofrisk}}</small></td>
+                                <td><small>{{$r->submitter}}</small></td>
+                                <td><small>{{$r->name_project}}</small></td>
+                                <td><small>{{$r->probability_factor}}</small></td>
+                                <td><small>{{$r->impact_factor}}</small></td>
+                                <td><small>{{$r->exposure}}</small></td>
+                                <td><small>{{$r->Risk_reponse_type}}</small></td>
+                                <td><small>{{$r->Risk_reponse_plan}}</small></td>
+                                <td><small>{{$r->assigned_to}}</small></td>
+                                <td><small>{{$r->status}}</small></td>
+                                <td><small>{{$r->due_date}}</small></td>
+                                <td>
+                                    <a href="/risk/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/risk/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Quality</h2>
+                <a href="/quality/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Requirements</small></th>
+                                <th><small>Category</small></th>
+                                <th><small>Action</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($quality as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->requirements}}</small></td>
+                                <td><small>{{$r->category}}</small></td>
+                                <td>
+                                    <a href="/quality/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/quality/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Stakeholder</h2>
+                <a href="/risk/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Stakeholder</small></th>
+                                <th><small>Role</small></th>
+                                <th><small>Power</small></th>
+                                <th><small>Interest</small></th>
+                                <th><small>Initiation</small></th>
+                                <th><small>Planning</small></th>
+                                <th><small>Executing</small></th>
+                                <th><small>Control</small></th>
+                                <th><small>Close</small></th>
+                                <th><small>Engagement Level</small></th>
+                                <th><small>Action</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($stakeholder as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->stakeholder}}</small></td>
+                                <td><small>{{$r->role}}</small></td>
+                                <td><small>{{$r->power}}</small></td>
+                                <td><small>{{$r->interest}}</small></td>
+                                <td><small>{{$r->initiation}}</small></td>
+                                <td><small>{{$r->planning}}</small></td>
+                                <td><small>{{$r->executing}}</small></td>
+                                <td><small>{{$r->control}}</small></td>
+                                <td><small>{{$r->close}}</small></td>
+                                <td><small>{{$r->engagement_level}}</small></td>
+                                <td>
+                                    <a href="/stakeholder/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/stakeholder/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Procurement</h2>
+                <a href="/procurement/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Value</small></th>
+                                <th><small>Contract Value</small></th>
+                                <th><small>Action</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($procurement as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->value}}</small></td>
+                                <td><small>{{$r->contract_value}}</small></td>
+                                <td>
+                                    <a href="/procurement/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/procurement/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Beban Barang</h2>
+                <a href="/bebanbarang/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Procurement</small></th>
+                                <th><small>Vendor</small></th>
+                                <th><small>Description Service</small></th>
+                                <th><small>Volume</small></th>
+                                <th><small>Units</small></th>
+                                <th><small>Total</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($bebanbarang as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->procurement}}</small></td>
+                                <td><small>{{$r->vendor}}</small></td>
+                                <td><small>{{$r->description_service}}</small></td>
+                                <td><small>{{$r->volume}}</small></td>
+                                <td><small>{{$r->units}}</small></td>
+                                <td><small>{{$r->total}}</small></td>
+                                <td>
+                                    <a href="/bebanbarang/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/bebanbarang/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-10">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h2 class="mb-4">Beban subkon</h2>
+                <a href="/bebansubkon/add" class="btn btn-sm btn-outline-success m-2"><i class="fa fa-plus me-2"></i>Add Data</a><br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="example">
+                        <thead>
+                            <tr class="text-white">
+                                <th><small>Procurement</small></th>
+                                <th><small>Vendor</small></th>
+                                <th><small>Description Service</small></th>
+                                <th><small>Volume</small></th>
+                                <th><small>Units</small></th>
+                                <th><small>Total</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($bebansubkon as $r)
+                            <tr class="text-white">
+                                <td><small>{{$r->procurement_subkon}}</small></td>
+                                <td><small>{{$r->vendor_subkon}}</small></td>
+                                <td><small>{{$r->description_service_subkon}}</small></td>
+                                <td><small>{{$r->volume_subkon}}</small></td>
+                                <td><small>{{$r->units_subkon}}</small></td>
+                                <td><small>{{$r->total_subkon}}</small></td>
+                                <td>
+                                    <a href="/bebansubkon/{{$r->id}}/edit" class="btn btn-sm btn-outline-info m-2"><i class="fa fa-pen me-2"></i>Edit</a>      
+                                    <a href="/bebansubkon/{{$r->id}}/delete" class="btn btn-sm btn-outline-danger m-2" onclick="return confirm('are you sure to delete this?')"><i class="fa fa-trash me-2"></i>Delete</a>   
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+=======
+<center>
+    <div class="navbar-nav align-items-center ms-auto">
+            <a href="#" class="nav-link" >
+                <i class="fas fa-crosshairs me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Scope</span >
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="far fa-calendar-alt me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Schedule</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="	fas fa-coins me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Cost</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="fas fa-award me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Quality</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="fa fa-cogs me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Resources</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="far fa-comments me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Communication</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="fa fa-cog me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Risk</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="fas fa-shopping-cart me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Procurement</span>
+            </a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <i class="fas fa-users-cog me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Stakeholder</span>
+            </a>
+
+            
+    </div>
+</center>
+</nav>
+>>>>>>> 1992e0e52e48761aef8d4c681f20198965ac2e69
+@endsection
